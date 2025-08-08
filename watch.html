@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading Ad...</title>
+  <style>
+    body { background: #000; color: #fff; font-family: Arial; text-align: center; padding: 50px; }
+    h1 { font-size: 24px; }
+  </style>
+</head>
+<body>
+  <h1>⏳ Please wait... Opening ad</h1>
+  <p>You’ll be redirected back in 6 seconds.</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const movieId = params.get("movie");
+
+    // Store movie ID and seenAd in session
+    sessionStorage.setItem("seenMonetag", "true");
+    sessionStorage.setItem("returnToMovieId", movieId);
+
+    // Open ad in new tab
+    window.open("https://embeddedoxide.com/tg912k0d?key=4f8c6307db932bdbe050ad387d46c7a0", "_blank"); // Replace with your Monetag link
+
+    // Redirect back to main player after delay
+    setTimeout(() => {
+      window.location.href = `index.html?play=1&movie=${movieId}`;
+    }, 6000);
+  </script>
+</body>
+</html>
